@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+    h1 {
+      color: #ffd700;
+    }
+
+    .button1 {
+      background-color: #ffd700;
+    }
+
+    /* Gold */
+  </style>
+</head>
+
+<body>
+
+  <img id="lebronjames"
+    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXpnbu6NEHq9R70wVUwckgAQkFPy4iKlI4qg8242K9RxLHmpeXLWhYg0Me0pp3TPUh4jg:https://upload.wikimedia.org/wikipedia/commons/b/b2/Hausziege_04.jpg&usqp=CAU">
+  <h1 id="goatScore">goatScore:0</h1>
+
+  <button id="no" class="button button1">Goat Upgrade</button>
+  <button id="nay" class="button button2">auto click</button>
+</body>
+
+</html>
+<script>
+  var goatScore = 0
+  var goatUpgrade = 2
+  document.getElementById("lebronjames").addEventListener("click", increaseScore)
+  document.getElementById("no").addEventListener("click", upgrade)
+  document.getElementById("no").innerText = "Goat Upgrade+" + goatUpgrade
+  document.getElementById("nay").addEventListener("click",autoclicker)
+
+  function increaseScore() {
+    goatScore = goatScore + goatUpgrade
+    document.getElementById("goatScore").innerText = "Goat Score:" + goatScore
+    console.log(goatScore)
+  }
+  function upgrade() {
+    if (goatScore >= 7) {
+      goatUpgrade = goatUpgrade + 1
+      goatScore = goatScore - 10
+    }
+  }
+
+    function autoclicker() {
+      setInterval(increaseScore, 100)
+      document.getElementById("nay").innerHTML += "";
+    }
+</script>
