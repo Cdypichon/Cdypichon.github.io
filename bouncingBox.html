@@ -7,17 +7,48 @@
     <title>JS Bin</title>
     <style>
         div {
-            width: 50px;
-            height: 50px;
-            background-color:red;
+            width: 100px;
+            height: 100px;
+            background-color: goldenrod;
+            position: absolute;
+            top: 100px;
+            left: 100px;
         }
     </style>
 </head>
 
 <body>
-    <div>
+    <div id="oh">
 
     </div>
 </body>
 
 </html>
+<script>
+    var y = 100
+    var x = 150
+    var xdirection = -70
+    var ydirection = 70
+    document.getElementById("oh").addEventListener("click", moveBox)
+    function moveBox() {
+        if (x < 29) {
+            xdirection = 30
+        }
+        if (x > 1800) {
+            xdirection = -30
+        }
+        if (y < 30) {
+            ydirection = 30
+        }
+        if (y > 850) {
+            ydirection = -30
+        }
+       
+        x = x + xdirection
+        y = y + ydirection
+        document.getElementById("oh").style.top = y + "px"
+        document.getElementById("oh").style.left = x + "px"
+    }
+ setInterval(moveBox, 90)
+
+</script>
